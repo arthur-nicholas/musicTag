@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Metadata Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
+        <svg id="sunIcon" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg id="moonIcon" class="theme-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+    <div class="container">
+        <h1>Music Metadata Editor</h1>
+
+        <div class="upload-section">
+            <label for="fileInput" class="file-label">
+                <span class="file-icon">&#127925;</span>
+                <span id="fileLabelText">Selecionar arquivo de audio:</br>[ mp3, opus, flac, ogg, m4a, wav ]</span>
+                <input type="file" id="fileInput" accept="audio/*,.mp3,.flac,.ogg,.opus,.wav,.m4a,.aac" hidden>
+            </label>
+        </div>
+
+        <div id="fileInfo" class="file-info hidden">
+            <div class="file-name" id="fileName"></div>
+            <div class="current-metadata" id="currentMetadata"></div>
+        </div>
+
+        <div class="search-section">
+            <h2>Buscar Metadados</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="titleInput">Musica</label>
+                    <input type="text" id="titleInput" placeholder="Nome da musica">
+                </div>
+                <div class="form-group">
+                    <label for="artistInput">Artista</label>
+                    <input type="text" id="artistInput" placeholder="Nome do artista">
+                </div>
+            </div>
+            <button id="searchBtn" class="btn btn-primary" disabled>Buscar</button>
+        </div>
+
+        <div id="resultsSection" class="results-section hidden">
+            <h2>Resultados da Busca</h2>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <div id="previewSection" class="preview-section hidden">
+            <h2>Preview dos Metadados</h2>
+            <div class="preview-card">
+                <div class="preview-art">
+                    <img id="previewArt" src="" alt="Capa do album">
+                </div>
+                <div class="preview-details">
+                    <div class="form-group">
+                        <label>Titulo</label>
+                        <input type="text" id="previewTitle">
+                    </div>
+                    <div class="form-group">
+                        <label>Artista</label>
+                        <input type="text" id="previewArtist">
+                    </div>
+                    <div class="form-group">
+                        <label>Album</label>
+                        <input type="text" id="previewAlbum">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ano</label>
+                            <input type="text" id="previewYear">
+                        </div>
+                        <div class="form-group">
+                            <label>Genero</label>
+                            <input type="text" id="previewGenre">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="applyBtn" class="btn btn-success">Aplicar e Baixar Arquivo</button>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Processando...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
