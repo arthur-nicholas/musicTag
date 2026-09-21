@@ -2,7 +2,7 @@ FROM ubuntu:latest AS build
 
 RUN apt-get update
 RUN apt-get install openjdk-25-jdk -y
-Run apt-get -y opustags 2>&1
+RUN apt-get -y opustags 2>&1
 COPY . .
 
 RUN apt-get install maven -y
