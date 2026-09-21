@@ -5,7 +5,7 @@ RUN apt-get install openjdk-25-jdk -y
 COPY . .
 
 RUN apt-get install maven -y
-RUN mvn clear install
+RUN mvn clean install
 
 FROM eclipse-temurin:25
 
