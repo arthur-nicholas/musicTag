@@ -2,16 +2,15 @@ FROM ubuntu:latest AS build
 
 RUN apt-get update
 RUN apt-get install openjdk-25-jdk -y
-RUN apt-get install opustags -y
 
 COPY . .
 
 RUN apt-get install maven -y
 RUN mvn clean install
 
-RUN rm -rf /var/lib/apt/lists/*
-
 FROM eclipse-temurin:25
+
+RUN apt-get update && apt-get install -y opustags && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080
 
