@@ -10,7 +10,6 @@ RUN apt-get install maven -y
 RUN mvn clean install
 
 RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get clean
 
 FROM eclipse-temurin:25
 
